@@ -28,18 +28,22 @@ The steps have been tested and verified on Ubuntu 22.04.3 LTS; however, they sho
 - Port 80 on host machine should be free; please ensure that no other application is listening on port 80. Refer: https://www.cyberciti.biz/faq/unix-linux-check-if-port-is-in-use-command/
 
 ## Steps for Building the Image
-- Extract **Docker-Build.tar.gz**: `tar -xvf Docker-Build.tar.gz`
-- Go to the extracted Directory: `cd Docker-Build`
-- The directory structure should look something like this:   
-  Docker-Build  
-  ├── build.sh  
-  ├── Dockerfile  
-  ├── run-qemu.sh  
-  └── zc706_qemu_webserver_defconfig  
-      -- **build.sh**: Shell script that takes care of building and running the Docker container image  
-      -- **Dockerfile**: Recipe for building and booting the Zynq-ZC706 inside the container  
-      -- **run-qemu.sh**: Shell script with QEMU command for booting the image (used in the Dockerfile)  
-      -- **zc706_qemu_webserver_defconfig**: Customized Buildroot config file for ZC706 target  
+- Clone this repository
+- Go to the clone repo Directory: `cd zynq-zc706-buildroot-webserver`
+- The directory structure should look something like this:
+
+    zynq-zc706-buildroot-webserver/  
+    ├── build.sh  
+    ├── Dockerfile  
+    ├── LICENSE  
+    ├── README.md  
+    ├── run-qemu.sh  
+    └── zc706_qemu_webserver_defconfig    
+
+  -- **build.sh**: Shell script that takes care of building and running the Docker container image  
+  -- **Dockerfile**: Recipe for building and booting the Zynq-ZC706 inside the container  
+  -- **run-qemu.sh**: Shell script with QEMU command for booting the image (used in the Dockerfile)  
+  -- **zc706_qemu_webserver_defconfig**: Customized Buildroot config file for ZC706 target  
 - Execute the shell script **build.sh**: `sh build.sh`  
 > Sit back, relax, or grab a coffee; the build should take somewhere around 1 hour to 1 hour 30 minutes. Depending on the internet speed and host machine configuration, the build time can be less.
 - After the build finishes, the script will start the docker container with port 80 of container mapped to port 80 of the host machine
