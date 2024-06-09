@@ -1,6 +1,23 @@
 # zynq-zc706-buildroot-webserver
 Building and Running zynq-zc706 Image using QEMU inside Docker
 
+# Task
+Create a script that builds a Linux system using Buildroot 2023.08.3. The system should be targeted towards the Xilinx ZC706 evaluation board 
+and host an HTTP server with a website at port 80.
+
+Verify that the image works by booting it using QEMU. Create a docker file that reproduces the OS build and
+QEMU boot.
+
+The docker file should clone the buildroot repository and build the linux system based on
+a custom defconfig. Upon running, the docker image should present a shell prompt in the system booted via QEMU.
+
+You can forward the port from the QEMU target to the Docker image port to inspect the QEMU-hosted website in your browser, 
+or verify that the website is correctly configured with wget.
+
+Solving the task should result in a Dockerfile along with supplementary files required to build/boot
+the target system image.
+>----------------------------------------------------
+# Instructions
 ## Building and Booting Buildroot Zynq-ZC706 Image using Docker
 
 The steps have been tested and verified on Ubuntu 22.04.3 LTS; however, they should run on any Linux platform.
